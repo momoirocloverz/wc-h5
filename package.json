@@ -1,0 +1,63 @@
+{
+  "name": "wenchengh5",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@aligov/jssdk-mgop": "^3.1.7",
+    "@amap/amap-jsapi-loader": "^1.0.1",
+    "ali-oss": "^6.16.0",
+    "all": "^0.0.0",
+    "better-scroll": "^2.3.1",
+    "compressorjs": "^1.1.1",
+    "core-js": "^3.6.5",
+    "dayjs": "^1.10.6",
+    "lodash": "^4.17.21",
+    "lrz": "^4.9.41",
+    "vue": "^3.0.0",
+    "vue-esign": "^1.1.4",
+    "vue3-cropper": "^0.4.0",
+    "vuex": "^4.0.1",
+    "vuex-persistedstate": "^4.0.0-beta.3"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "amfe-flexible": "^2.2.1",
+    "axios": "^0.21.1",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.3",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "less": "^3.9.1",
+    "less-loader": "^7.2.0",
+    "postcss-pxtorem": "5.1.1",
+    "vant": "^3.3.7",
+    "vue-router": "^4.0.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

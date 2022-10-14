@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no,viewport-fit=cover " />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title></title>
+    <link href="./reset.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/reset.css" type="text/css">
+    <link rel="stylesheet" href="./css/common.css" type="text/css">
+</head>
+
+<body>
+    <noscript>
+        <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+                properly without JavaScript enabled. Please enable it to
+                continue.</strong>
+    </noscript>
+    <div id="app" style="--size: 1;"></div>
+    <script src="https://assets.zjzwfw.gov.cn/assets/ZWJSBridge/1.1.0/zwjsbridge.js"></script>
+    <script type="text/javascript">
+        (function (w, d, s, q, i) {
+            w[q] = w[q] || [];
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s);
+            j.async = true;
+            j.id = 'beacon-aplus';
+            j.src = 'https://d.alicdn.com/alilog/mlog/aplus.js?id=202951085';
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'aplus_queue');
+        aplus_queue.push({
+            action: 'aplus.setMetaInfo',
+            arguments: ['aplus-rhost-v', 'alog.zjzwfw.gov.cn']
+        });
+        aplus_queue.push({
+            action: 'aplus.setMetaInfo',
+            arguments: ['aplus-rhost-g', 'alog.zjzwfw.gov.cn']
+        });
+        aplus_queue.push({
+            action: 'aplus.setMetaInfo',
+            arguments: ['appId', '60506758']
+        });
+        ZWJSBridge.onReady(() => {
+            console.log('%chtml初始化Bridge', 'color:#f936e0')
+            ZWJSBridge.getLocation().then(res => {
+                ZWJSBridge.getUserType({}).then(ress => {
+                    // 单页应用路由切换后 或 在异步获取到 pv 日志所需的参数后再执行 sendPV：
+                    aplus_queue.push({
+                        'action': 'aplus.sendPV',
+                        'arguments': [{
+                            is_auto: false
+                        }, {
+                            // 自定义 PV 参数 key-value 键值对（只能是这种平铺的 json，不能做多层嵌套），如：
+                            miniAppId: '2001885902',
+                            miniAppName: '共富帮',
+                            userType: ress.userType,
+                            long: res.longitude,
+                            lati: res.latitude,
+                        }]
+                    })
+                }).catch(err => {
+                    console.log(`%c获取用户信息错误`, 'color:#f00')
+                    console.log(err)
+                })
+            })
+        })
+    </script>
+    <!-- <script src="./vconsole.min.js"></script>
+    <script>
+        var vConsole = new VConsole()
+    </script> -->
+
+    <!-- <script src="./init.js"></script> -->
+    <!-- built files will be auto injected -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script> -->
+    <!-- <script src="./eruda.js"></script>
+    <script>
+        var sUserAgent = window.navigator.userAgent.toLowerCase()
+        var bIsDtDreamApp = sUserAgent.indexOf('dtdreamweb') > -1 // 浙里办APP
+        var bIsAlipayMini = sUserAgent.indexOf('miniprogram') > -1 && sUserAgent.indexOf('alipay') > -1
+        // if (bIsDtDreamApp || bIsAlipayMini) {
+        eruda.init();
+        // }
+    </script> -->
+</body>
+
+</html>
